@@ -4,13 +4,10 @@
  * Ejercicio 08: Control de Llenado de Tanque de Líquido
  * Creador: Hernández Domínguez Bryan
  ----------------------------------------------------------------------------------- */
-
 Console.WriteLine("=== CONTROL DE LLENADO DE TANQUE ===");
 Console.WriteLine();
-
 // Crear un objeto de la clase 
 TanqueLiquido tanque = new TanqueLiquido();
-
 // Capturar la información 
 Console.Write("Capacidad máxima del tanque (en L): ");
 tanque.Capacidad = Convert.ToDouble(Console.ReadLine());
@@ -18,9 +15,7 @@ Console.Write("Volumen inicial (en L): ");
 tanque.VolumenActual = Convert.ToDouble(Console.ReadLine());
 Console.Write("Volumen a agregar por ciclo (en L): ");
 tanque.VolumenAgregar = Convert.ToDouble(Console.ReadLine());
-
 tanque.SimularLlenado(); // Llama al método para simular el llenado
-
 // Definición de la clase TanqueLiquido
 class TanqueLiquido
 {
@@ -37,7 +32,6 @@ class TanqueLiquido
         }
         return (VolumenActual / Capacidad) * 100.0;
     }
-
     // Método para simular el llenado progresivo
     public void SimularLlenado()
     {
@@ -49,22 +43,18 @@ class TanqueLiquido
         {
             Console.WriteLine();
             Console.WriteLine("--- INICIANDO PROCESO DE LLENADO ---");
-
             int ciclo = 0; // Inicia contador
-
             // Muestra el estado inicial (Ciclo 0) antes de sumar el primer incremento
             Console.WriteLine($"Ciclo {ciclo}: Volumen actual = {VolumenActual:F2} L | Llenado = {CalcularPorcentaje():F2}%");
 
             while (VolumenActual < Capacidad) // Repite hasta alcanzar la capacidad
             {
                 ciclo++; // Suma 1 al ciclo
-                VolumenActual += VolumenAgregar; // Aumenta el volumen
-
+                VolumenActual += VolumenAgregar; // Aumenta el volumenS
                 if (VolumenActual > Capacidad) // Verifica límite
                 {
                     VolumenActual = Capacidad; // Restringe al máximo permitido
                 }
-
                 Console.WriteLine($"Ciclo {ciclo}: Volumen actual = {VolumenActual:F2} L | Llenado = {CalcularPorcentaje():F2}%"); // Imprime progreso
             }
 
